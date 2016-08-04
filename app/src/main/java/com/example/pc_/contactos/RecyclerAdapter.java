@@ -45,7 +45,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String nombre = contactos.get(position).getNombre();
+                String letra = nombre.substring(0, 1);
+                Intent intent = new Intent(context, ContactoDetalle.class);
+                intent.putExtra("letra", letra);
+                context.startActivity(intent);
             }
         });
     }
